@@ -12,6 +12,9 @@
 //  appreciated but not required.
 //
 
+#include <TargetConditionals.h>
+
+
 #ifdef TARGET_OS_IPHONE			
 #import <UIKit/UIKit.h>
 #else

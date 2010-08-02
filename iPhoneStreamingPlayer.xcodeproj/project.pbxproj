@@ -13,6 +13,7 @@
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		288765A50DF7441C002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765A40DF7441C002DB57D /* CoreGraphics.framework */; };
 		28D7ACF80DDB3853001CB0EB /* iPhoneStreamingPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28D7ACF70DDB3853001CB0EB /* iPhoneStreamingPlayerViewController.m */; };
+		3BFDD0921207227C00E295DB /* AudioStreamer.m in Sources */ = {isa = PBXBuildFile; fileRef = C9C2D8780EB6E09C00A3D071 /* AudioStreamer.m */; };
 		C9423DF10EF8AA6B003B785B /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9423DF00EF8AA6B003B785B /* CFNetwork.framework */; };
 		C9AB93E20FCF816F0047C0FA /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9AB93E10FCF816F0047C0FA /* AudioToolbox.framework */; };
 		C9AB93F30FCF81790047C0FA /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9AB93F20FCF81790047C0FA /* MediaPlayer.framework */; };
@@ -37,6 +38,7 @@
 		28D7ACF70DDB3853001CB0EB /* iPhoneStreamingPlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPhoneStreamingPlayerViewController.m; sourceTree = "<group>"; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		32CA4F630368D1EE00C91783 /* iPhoneStreamingPlayer_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPhoneStreamingPlayer_Prefix.pch; sourceTree = "<group>"; };
+		3BFDCF691207225100E295DB /* libAudioStreamer.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libAudioStreamer.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9423DF00EF8AA6B003B785B /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		C9AB93E10FCF816F0047C0FA /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		C9AB93F20FCF81790047C0FA /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
@@ -87,6 +89,7 @@
 			isa = PBXGroup;
 			children = (
 				1D6058910D05DD3D006BFB54 /* iPhoneStreamingPlayer.app */,
+				3BFDCF691207225100E295DB /* libAudioStreamer.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -160,6 +163,21 @@
 			productReference = 1D6058910D05DD3D006BFB54 /* iPhoneStreamingPlayer.app */;
 			productType = "com.apple.product-type.application";
 		};
+		3BFDCF681207225100E295DB /* AudioStreamer */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3BFDD095120722AA00E295DB /* Build configuration list for PBXNativeTarget "AudioStreamer" */;
+			buildPhases = (
+				3BFDCF661207225100E295DB /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AudioStreamer;
+			productName = AudioStreamer;
+			productReference = 3BFDCF691207225100E295DB /* libAudioStreamer.a */;
+			productType = "com.apple.product-type.library.static";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -173,6 +191,7 @@
 			projectRoot = "";
 			targets = (
 				1D6058900D05DD3D006BFB54 /* iPhoneStreamingPlayer */,
+				3BFDCF681207225100E295DB /* AudioStreamer */,
 			);
 		};
 /* End PBXProject section */
@@ -205,6 +224,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		3BFDCF661207225100E295DB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3BFDD0921207227C00E295DB /* AudioStreamer.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
@@ -231,6 +258,45 @@
 				GCC_PREFIX_HEADER = iPhoneStreamingPlayer_Prefix.pch;
 				INFOPLIST_FILE = iPhoneInfo.plist;
 				PRODUCT_NAME = iPhoneStreamingPlayer;
+			};
+			name = Release;
+		};
+		3BFDCF6A1207225100E295DB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				IPHONEOS_DEPLOYMENT_TARGET = 3.0;
+				ONLY_ACTIVE_ARCH = NO;
+				PREBINDING = NO;
+				PRODUCT_NAME = AudioStreamer;
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				SDKROOT = iphoneos4.0;
+				SKIP_INSTALL = NO;
+			};
+			name = Debug;
+		};
+		3BFDCF6B1207225100E295DB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_MODEL_TUNING = G5;
+				PREBINDING = NO;
+				PRODUCT_NAME = AudioStreamer;
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				SKIP_INSTALL = NO;
+				ZERO_LINK = NO;
 			};
 			name = Release;
 		};
@@ -272,6 +338,15 @@
 			buildConfigurations = (
 				1D6058940D05DD3E006BFB54 /* Debug */,
 				1D6058950D05DD3E006BFB54 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3BFDD095120722AA00E295DB /* Build configuration list for PBXNativeTarget "AudioStreamer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3BFDCF6A1207225100E295DB /* Debug */,
+				3BFDCF6B1207225100E295DB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
